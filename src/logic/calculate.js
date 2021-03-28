@@ -47,6 +47,3 @@ const calculate = (data, buttonName) => {
 };
 
 export default calculate;
-
-// This method should use the buttonName argument to mutate the calculator’s data object and return its modified version.
-//For instance if buttonName == "+/-", it should multiply total and next by -1 to make it negative or positive.
