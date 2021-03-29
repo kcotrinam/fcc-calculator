@@ -1,10 +1,28 @@
+import { useState } from 'react';
 import calculate from '../logic/calculate';
 import ButtonPanel from './ButtonPanel';
-
-console.log(calculate({ total: '2.2', next: '2', operation: '+' }, '='));
+import Display from './Display';
 
 const App = () => {
-	return <ButtonPanel />;
+	const [value, setValue] = useState({
+		total: '',
+		next: '',
+		operation: '',
+	});
+
+	const clickHandler = (buttonName) => {
+		const newResult = calculate(value, buttonName);
+		setValue({
+			...newResult,
+		});
+	};
+
+	return (
+		<>
+			<Display results={value.operation ? value.next : value.total} />
+			<ButtonPanel handleClick={clickHandler} />
+		</>
+	);
 };
 
 export default App;

@@ -1,1 +1,3 @@
-const Display = ({ result = '0' }) => <h1>{result}</h1>;
+const Display = ({ results = '0' }) => <h1>{results}</h1>;
+
+export default Display;

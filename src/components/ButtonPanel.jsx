@@ -9,9 +9,11 @@ const BUTTONGROUP = {
 	group5: ['0', '.', '='],
 };
 
-const ButtonPanel = () => {
+const ButtonPanel = ({ handleClick }) => {
 	const renderButtons = (group) =>
-		group.map((name) => <Button key={name} name={name} />);
+		group.map((name) => (
+			<Button key={name} name={name} handleClick={handleClick} />
+		));
 
 	const { group1, group2, group3, group4, group5 } = BUTTONGROUP;
 
