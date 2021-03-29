@@ -1,4 +1,8 @@
-const Button = ({ name, handleClick }) => {
-	return <button onClick={() => handleClick(name)}>{name}</button>;
+const Button = ({ name, idValue, handleClick }) => {
+	return (
+		<button id={idValue} onClick={() => handleClick(name)}>
+			{name}
+		</button>
+	);
 };
 export default Button;
