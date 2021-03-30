@@ -5,8 +5,8 @@ import Display from './Display';
 
 const App = () => {
 	const [value, setValue] = useState({
-		total: '',
-		next: '',
+		total: '0',
+		next: '0',
 		operation: '',
 	});
 

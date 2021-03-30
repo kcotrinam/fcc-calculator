@@ -4,8 +4,8 @@ const calculate = (data, buttonName) => {
 	let { total, next, operation } = data;
 
 	if (buttonName === 'AC') {
-		total = '';
-		next = '';
+		total = '0';
+		next = '0';
 		operation = '';
 		return { total, next, operation };
 	}
@@ -26,7 +26,6 @@ const calculate = (data, buttonName) => {
 			buttonName === '/')
 	) {
 		operation = buttonName;
-		console.log({ total, next, operation });
 		return { total, next, operation };
 	}
 
@@ -37,10 +36,16 @@ const calculate = (data, buttonName) => {
 		return { total, next, operation };
 	}
 
-	if (!operation && /^[0-9]+/.test(buttonName)) {
+	if (!operation && /^[0-9]+/.test(buttonName) && !total.includes('.')) {
+		total = buttonName;
+		return { total, next, operation };
+	} else if (!operation && /^[0-9]+/.test(buttonName) && total !== '0') {
 		total += buttonName;
 		return { total, next, operation };
 	} else if (operation && /^[0-9]+/.test(buttonName)) {
+		next = buttonName;
+		return { total, next, operation };
+	} else if (operation && /^[0-9]+/.test(buttonName) && next !== '0') {
 		next += buttonName;
 		return { total, next, operation };
 	}
