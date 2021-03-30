@@ -2,7 +2,7 @@ const operate = (numberOne, numberTwo, operation) => {
 	let result = 0;
 	switch (operation) {
 		case '+':
-			result = numberOne + numberTwo;
+			result = numberOne * 1 + numberTwo * 1;
 			break;
 		case '-':
 			result = numberOne - numberTwo;

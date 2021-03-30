@@ -5,9 +5,9 @@ import Display from './Display';
 
 const App = () => {
 	const [value, setValue] = useState({
-		total: '0',
-		next: '0',
-		operation: '',
+		total: null,
+		next: null,
+		operation: null,
 	});
 
 	const clickHandler = (buttonName) => {
