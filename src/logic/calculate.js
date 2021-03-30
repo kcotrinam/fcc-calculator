@@ -66,8 +66,13 @@ const calculate = (data, buttonName) => {
 			}
 
 		case '+/-':
-			console.log('hello');
-			break;
+			if (!operation && total) {
+				total *= -1;
+				return { total, next, operation };
+			} else if (operation && next) {
+				next *= -1;
+				return { total, next, operation };
+			}
 
 		case '.':
 			if (!operation && !total) {
