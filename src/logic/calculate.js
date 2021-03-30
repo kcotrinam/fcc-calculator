@@ -40,7 +40,11 @@ const calculate = (data, buttonName) => {
 		case '8':
 		case '9':
 			if (!operation) {
-				if (!total) {
+				if (buttonName === '0' && total === null) {
+					total = null;
+					return { total, next, operation };
+				}
+				if (!total || total === '0') {
 					total = buttonName;
 					return { total, next, operation };
 				} else {
@@ -48,7 +52,11 @@ const calculate = (data, buttonName) => {
 					return { total, next, operation };
 				}
 			} else if (operation) {
-				if (!next) {
+				if (buttonName === '0' && (next === null) === '0') {
+					total = null;
+					return { total, next, operation };
+				}
+				if (!next || next === '0') {
 					next = buttonName;
 					return { total, next, operation };
 				} else {
