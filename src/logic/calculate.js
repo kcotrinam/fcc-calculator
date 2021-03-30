@@ -4,18 +4,18 @@ const calculate = (data, buttonName) => {
 	let { total, next, operation } = data;
 
 	if (buttonName === 'AC') {
-		total = null;
-		next = null;
-		operation = null;
+		total = '';
+		next = '';
+		operation = '';
 		return { total, next, operation };
 	}
 
 	if (buttonName === '+/-' && next) {
 		next = next * -1;
-		console.log(next);
+		return { total, next, operation };
 	} else if (buttonName === '+/-' && total) {
 		total = total * -1;
-		console.log(total);
+		return { total, next, operation };
 	}
 
 	if (
@@ -26,40 +26,38 @@ const calculate = (data, buttonName) => {
 			buttonName === '/')
 	) {
 		operation = buttonName;
-		return { total, next, operation };
-	}
-
-	if (buttonName === '.' && (!total || total === '0')) {
-		total = '0.';
-		return { total, next, operation };
-	} else if (buttonName === '.' && total && !next) {
-		next = '0.';
+		console.log({ total, next, operation });
 		return { total, next, operation };
 	}
 
 	if (buttonName === '=') {
 		total = operate(total, next, operation).toString();
-		next = null;
-		operation = null;
+		next = '';
+		operation = '';
 		return { total, next, operation };
 	}
 
-	if (!operation && total) {
-		console.log(/^[0-9]+/.test(buttonName));
+	if (!operation && /^[0-9]+/.test(buttonName)) {
 		total += buttonName;
 		return { total, next, operation };
-	} else if (!operation && !total) {
-		console.log(/^[0-9]+/.test(buttonName));
-		total = buttonName;
-		console.log(total);
+	} else if (operation && /^[0-9]+/.test(buttonName)) {
+		next += buttonName;
 		return { total, next, operation };
 	}
 
-	if (operation && next) {
-		next += buttonName;
+	if (buttonName == '.' && !total && !operation) {
+		total = '0.';
 		return { total, next, operation };
-	} else if (operation && !next) {
-		next = buttonName;
+	} else if (buttonName == '.' && operation && !next) {
+		next = '0.';
+		return { total, next, operation };
+	} else if (total && buttonName === '.' && !total.includes('.')) {
+		total += '.';
+		return { total, next, operation };
+	} else if (buttonName === '.' && !next.includes('.')) {
+		next += '.';
+		return { total, next, operation };
+	} else if (total.includes('.') || next.includes('.')) {
 		return { total, next, operation };
 	}
 };

@@ -16,7 +16,7 @@ const BUTTONGROUP = {
 			value: '%',
 		},
 		{
-			name: 'div',
+			name: 'divide',
 			value: '/',
 		},
 	],
@@ -52,7 +52,7 @@ const BUTTONGROUP = {
 			value: '6',
 		},
 		{
-			name: 'substract',
+			name: 'subtract',
 			value: '-',
 		},
 	],
@@ -76,7 +76,7 @@ const BUTTONGROUP = {
 	],
 	group5: [
 		{
-			name: 'zeri',
+			name: 'zero',
 			value: '0',
 		},
 		{
