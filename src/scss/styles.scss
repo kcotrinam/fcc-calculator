@@ -1,0 +1,67 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.calculator-container {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	width: 500px;
+	height: 400px;
+}
+
+#display {
+	height: 60px;
+	background-color: #ccc;
+}
+
+.panel-button {
+	display: grid;
+	grid-template-rows: repeat (5, 1fr);
+}
+
+.row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	& #equals {
+		grid-column: span 2;
+	}
+
+	& button {
+		font-size: 1.5rem;
+	}
+}
+
+.btn {
+	background-color: #d6d6d6;
+	color: #000;
+	font-weight: bolder;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+#add,
+#multiply,
+#subtract,
+#divide,
+#negation,
+#percentage {
+	background-color: orange;
+}
+
+#equals {
+	background-color: #4bb543;
+}
+
+#clear {
+	background-color: #f00;
+}
